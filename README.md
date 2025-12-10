@@ -37,19 +37,58 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+FOR FULL ADDER
+<img width="443" height="391" alt="Screenshot 2025-12-10 140158" src="https://github.com/user-attachments/assets/810efc13-824e-4629-bd0a-b155e11a24b6" />
+FOR FULL SUBTRACTROR
+<img width="449" height="407" alt="Screenshot 2025-12-10 140246" src="https://github.com/user-attachments/assets/02e9e6e4-30c4-418d-a725-454a888cb580" />
 
 **Procedure**
 
 Write the detailed procedure here
 
 **Program:**
+```
+module Full_adder (
+    input  wire a, b, cin,   // Inputs
+    output wire sum, carry   // Outputs
+);
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+    // Logic equations
+    assign sum   = a ^ b ^ cin;                  // XOR for sum
+    assign carry = (a & b) | (b & cin) | (a & cin); // Majority function for carry
+
+endmodule
+
+```
+```
+module Full_subtract (
+    input  wire a, b, bin,       // Inputs
+    output wire diff, borrow     // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b ^ bin;                  // Difference
+    assign borrow = (~a & b) | (~(a ^ b) & bin);  // Borrow logic
+
+endmodule
+```
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+Developed by:SADHANA R 
+RegisterNumber:25017643
 */
 
 **RTL Schematic**
+FOR FULLL ADDER
+<img width="1920" height="1080" alt="Screenshot (44)" src="https://github.com/user-attachments/assets/6f651423-322c-41c1-b158-ee1946701ac3" />
+FOR FULL SUBTRACTOR
+<img width="1920" height="1080" alt="Screenshot (45)" src="https://github.com/user-attachments/assets/b816d287-a99e-448a-9627-bab415e50b87" />
+
 
 **Output Timing Waveform**
+FOR FULL ADEER
+<img width="1920" height="1080" alt="Screenshot (46)" src="https://github.com/user-attachments/assets/b3490526-7858-4dd1-8d66-bd085db7989a" />
+FOR FULL SUBTRACTOR
+<img width="1920" height="1080" alt="Screenshot (47)" src="https://github.com/user-attachments/assets/d7fe9523-f310-46e7-a95c-d03e25aa9b78" />
 
 **Result:**
 
